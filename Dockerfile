@@ -36,4 +36,4 @@ RUN apk add --no-cache curl gnupg --virtual .build-dependencies -- && \
 WORKDIR /
 # Adding SQL Server tools to $PATH
 ENV PATH=$PATH:/opt/mssql-tools/bin
-CMD ["/bin/sh"]
+#CMD ["/bin/sh"]
