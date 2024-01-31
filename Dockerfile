@@ -1,5 +1,6 @@
 FROM zabbix/zabbix-server-mysql:5.2-alpine-latest
 USER root
+RUN COPY odbc.ini /etc/
 RUN apk update
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc unixODBC-devel.x86_64 freetds.x86_64 freetds-devel.x86_64
 
