@@ -5,7 +5,7 @@ ADD osql /usr/sbin/
 RUN chmod a+X /usr/sbin/osql
 RUN apk update
 #RUN apk add unixodbc=2.3.1
-RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev mariadb-dev postgresql-dev
+RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc-dev=2.3.1-r0 mariadb-dev postgresql-dev
 
 ### #####################################################################################################################################################
 ### # Install dependencies
