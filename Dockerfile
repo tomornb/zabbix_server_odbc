@@ -3,7 +3,6 @@ USER root
 ADD odbc.ini /etc/
 ADD osql /usr/sbin/
 RUN apk update
-RUN apk add curl gpg
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc unixODBC-devel.x86_64 freetds.x86_64 freetds-devel.x86_64
 
 #case $(uname -m) in
@@ -16,6 +15,9 @@ RUN apk add curl gpg
 #    echo "Alpine architecture $(uname -m) is not currently supported.";
 #    exit;
 #fi
+
+# Install dependencies
+RUN apk --no-cache add curl gnupg
 
 #Download the desired package(s)
 curl -O https://download.microsoft.com/download/3/5/5/355d7943-a338-41a7-858d-53b259ea33f5/msodbcsql18_18.3.2.1-1_amd64.apk
