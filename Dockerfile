@@ -15,7 +15,10 @@ COPY unixODBC-2.3.0.tar.gz /tmp/
 RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz -C /usr/local
 RUN rm /tmp/unixODBC-2.3.0.tar.gz
 RUN mkdir /usr/lib64
+RUN CPPFLAGS="-DSIZEOF_LONG_INT=8"
+RUN export CPPFLAGS
 RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr/local/unixODBC' --sysconfdir='/etc'
+RUN make
 RUN make install
 
 #COPY msodbcsql-11.0.2270.0 /tmp/
