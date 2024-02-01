@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image zabbix server add odbc
-      run: docker build . --file Dockerfile --tag tomornb/zabbix-server-mysql
+      run: docker build . --rm --no-cache --file Dockerfile --tag tomornb/zabbix-server-mysql
