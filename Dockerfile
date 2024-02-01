@@ -12,8 +12,8 @@ RUN apk del unixODBC*
 COPY unixODBC-2.3.0.tar.gz /tmp/
 RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz -C /usr/local
 RUN rm /tmp/unixODBC-2.3.0.tar.gz
-RUN /usr/local/unixODBC-2.3.0/configure
-#RUN /tmp/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr' --sysconfdir='/etc'
+#RUN /usr/local/unixODBC-2.3.0/configure
+RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr' --sysconfdir='/etc'
 
 #COPY msodbcsql-11.0.2270.0 /tmp/
 #RUN /tmp/msodbcsql-11.0.2270.0/ install --force  --accept-license
