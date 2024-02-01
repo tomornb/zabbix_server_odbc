@@ -9,8 +9,11 @@ ADD odbc.ini /etc/
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc=2.3.7-r2 unixodbc-dev=2.3.7-r2 mariadb-dev postgresql-dev
 
 #RUN apk del unixODBC unixODBC-dev
-ADD unixODBC-2.3.0 /tmp/
+COPY unixODBC-2.3.0.tar.gz /tmp/
+RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz
+RUN rm /tmp/unixODBC-2.3.0.tar.gz
 RUN ls -lrt /tmp/unixODBC-2.3.0/configure
+
 RUN /tmp/unixODBC-2.3.0/configure
 #RUN /tmp/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr' --sysconfdir='/etc'
 
