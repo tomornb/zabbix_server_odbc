@@ -1,8 +1,8 @@
 FROM zabbix/zabbix-server-mysql:5.2-alpine-latest
 USER root
 ADD odbc.ini /etc/
-#ADD osql /usr/sbin/
-#RUN chmod a+X /usr/sbin/osql
+COPY osql /usr/sbin/
+RUN chmod a+X /usr/sbin/osql
 
 RUN apk update
 #RUN apk add unixodbc unixodbc-dev
@@ -16,6 +16,7 @@ RUN rm /tmp/unixODBC-2.3.0.tar.gz
 RUN mkdir /usr/lib64
 #RUN /usr/local/unixODBC-2.3.0/configure
 RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr' --sysconfdir='/etc'
+RUN make install
 
 #COPY msodbcsql-11.0.2270.0 /tmp/
 #RUN /tmp/msodbcsql-11.0.2270.0/ install --force  --accept-license
