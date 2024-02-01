@@ -3,6 +3,7 @@ USER root
 ADD odbc.ini /etc/
 ADD osql /usr/sbin/
 RUN apk update
+RUN apk curl gpg
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc unixODBC-devel.x86_64 freetds.x86_64 freetds-devel.x86_64
 
 #case $(uname -m) in
@@ -29,5 +30,5 @@ gpg --verify msodbcsql18_18.3.2.1-1_amd64.sig msodbcsql18_18.3.2.1-1_amd64.apk
 gpg --verify mssql-tools18_18.3.1.1-1_amd64.sig mssql-tools18_18.3.1.1-1_amd64.apk
 
 #Install the package(s)
-sudo apk add --allow-untrusted msodbcsql18_18.3.2.1-1_amd64.apk
-sudo apk add --allow-untrusted mssql-tools18_18.3.1.1-1_amd64.apk
+apk add --allow-untrusted msodbcsql18_18.3.2.1-1_amd64.apk
+apk add --allow-untrusted mssql-tools18_18.3.1.1-1_amd64.apk
