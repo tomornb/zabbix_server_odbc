@@ -4,7 +4,7 @@ ADD odbc.ini /etc/
 ADD osql /usr/sbin/
 RUN chmod a+X /usr/sbin/osql
 RUN apk update
-RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc:2.3.1 unixODBC-devel.x86_64:2.3.1 freetds.x86_64 freetds-devel.x86_64
+RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc=2.3.1 unixODBC-devel.x86_64=2.3.1 freetds.x86_64 freetds-devel.x86_64
 
 ### #####################################################################################################################################################
 ### # Install dependencies
