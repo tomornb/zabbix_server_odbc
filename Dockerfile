@@ -27,7 +27,7 @@ RUN make install
 #RUN /tmp/msodbcsql/install.sh install --force --accept-license
 
 COPY msodbcsql-11.0.2270.0 /tmp/
-RUN /tmp/msodbcsql-11.0.2270.0/ install --force  --accept-license
+RUN /tmp/msodbcsql-11.0.2270.0/install.sh --force  --accept-license
 
 ### #####################################################################################################################################################
 ### # Install dependencies
