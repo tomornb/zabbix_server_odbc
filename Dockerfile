@@ -21,7 +21,7 @@ RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --en
 RUN make
 RUN make install
 
-RUN COPY msodbcsql-11.0.2270.0.tar.gz /tmp/
+COPY msodbcsql-11.0.2270.0.tar.gz /tmp/
 RUN tar -zxvf /tmp/msodbcsql-11.0.2270.0.tar.gz
 RUN /tmp/msodbcsql-11.0.2270.0/install.sh install --force --accept-license
 
