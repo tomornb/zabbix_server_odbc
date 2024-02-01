@@ -5,7 +5,7 @@ RUN apk update
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc unixODBC-devel.x86_64 freetds.x86_64 freetds-devel.x86_64
 
 # MSSQL_VERSION can be changed, by passing `--build-arg MSSQL_VERSION=<new version>` during docker build
-ARG MSSQL_VERSION=17.5.2.1-1
+ARG MSSQL_VERSION=12.0.5543.11
 ENV MSSQL_VERSION=${MSSQL_VERSION}
 
 # Labels
