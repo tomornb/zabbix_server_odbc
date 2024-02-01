@@ -11,15 +11,15 @@ RUN apk update
 
 RUN apk add build-base
 RUN apk del unixODBC*
-COPY unixODBC-2.3.0.tar.gz /tmp/
-RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz -C /usr/local
-RUN rm /tmp/unixODBC-2.3.0.tar.gz
-RUN mkdir /usr/lib64
-RUN CPPFLAGS="-DSIZEOF_LONG_INT=8"
-RUN export CPPFLAGS
-RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr/local/unixODBC' --sysconfdir='/etc'
-RUN make
-RUN make install
+#COPY unixODBC-2.3.0.tar.gz /tmp/
+#RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz -C /usr/local
+#RUN rm /tmp/unixODBC-2.3.0.tar.gz
+#RUN mkdir /usr/lib64
+#RUN CPPFLAGS="-DSIZEOF_LONG_INT=8"
+#RUN export CPPFLAGS
+#RUN /usr/local/unixODBC-2.3.0/configure --enable-gui=no --enable-drivers=no --enable-iconv --with-iconv-char-enc=UTF8 --with-iconv-ucode-enc=UTF16LE --libdir='/usr/lib64' --prefix='/usr/local/unixODBC' --sysconfdir='/etc'
+#RUN make
+#RUN make install
 
 #COPY msodbcsql-11.0.2270.0.tar.gz /tmp/
 #RUN mkdir /tmp/msodbcsql
@@ -27,6 +27,7 @@ RUN make install
 #RUN /tmp/msodbcsql/install.sh install --force --accept-license
 
 COPY msodbcsql-11.0.2270.0 /tmp/
+RUN /tmp/msodbcsql-11.0.2270.0/build_dm.sh
 RUN /tmp/msodbcsql-11.0.2270.0/install.sh --force  --accept-license
 
 ### #####################################################################################################################################################
