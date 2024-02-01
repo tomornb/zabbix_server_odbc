@@ -4,11 +4,11 @@ ADD odbc.ini /etc/
 #ADD osql /usr/sbin/
 #RUN chmod a+X /usr/sbin/osql
 
-#RUN apk update
+RUN apk update
 #RUN apk add unixodbc unixodbc-dev
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc=2.3.7-r2 unixodbc-dev=2.3.7-r2 mariadb-dev postgresql-dev
 
-#RUN apk del unixODBC unixODBC-dev
+RUN apk del unixODBC*
 COPY unixODBC-2.3.0.tar.gz /tmp/
 RUN tar -zxvf /tmp/unixODBC-2.3.0.tar.gz -C /usr/local
 RUN rm /tmp/unixODBC-2.3.0.tar.gz
