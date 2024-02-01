@@ -3,7 +3,7 @@ USER root
 ADD odbc.ini /etc/
 ADD osql /usr/sbin/
 RUN apk update
-RUN apk curl gpg
+RUN apk add curl gpg
 #RUN apk add gcc libc-dev g++ libffi-dev libxml2 unixodbc unixODBC-devel.x86_64 freetds.x86_64 freetds-devel.x86_64
 
 #case $(uname -m) in
