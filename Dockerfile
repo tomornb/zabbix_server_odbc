@@ -22,6 +22,7 @@ RUN make
 RUN make install
 
 COPY msodbcsql-11.0.2270.0.tar.gz /tmp/
+RUN mkdir /tmp/msodbcsql
 RUN tar -zxvf /tmp/msodbcsql-11.0.2270.0.tar.gz -C /tmp/msodbcsql
 RUN /tmp/msodbcsql/install install --force --accept-license
 
